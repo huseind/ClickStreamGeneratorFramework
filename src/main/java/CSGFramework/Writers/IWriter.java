@@ -1,6 +1,7 @@
 package CSGFramework.Writers;
 
 import CSGFramework.Exceptions.WrongFileTypeException;
+import CSGFramework.UserAction;
 import CSGFramework.Website.Action;
 
 import java.util.List;
@@ -11,5 +12,5 @@ import java.util.List;
 
  interface IWriter {
 
-     void writeToFile (String fileURL, List<Action> actions) throws WrongFileTypeException;
+     void writeToFile (String fileURL, List<UserAction> userActions) throws WrongFileTypeException;
 }

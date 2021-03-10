@@ -10,7 +10,7 @@ public abstract class Converter {
         //TODO: Implemt method to convert userAction to JSON format
     }
 
-    public static void convertUserActionsToCSV(){
+    public static void convertUserActionsToCSV(List<UserAction> action){
         //TODO: Implemt method to convert userAction to CSV format
     }
 }

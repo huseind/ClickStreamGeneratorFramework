@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Action {
     private String actionId; // can be name
-    private String result; // result of action UNNECESSARY?
+    // private String result; // result of action UNNECESSARY?
     private int timeActionTakesToPerformInMs;
     private boolean actionPerformed = false;
     //private Date timeWhenActionWasPerformed;
@@ -30,5 +30,9 @@ public class Action {
 
     public int getTimeActionTakesToPerformInMs() {
         return timeActionTakesToPerformInMs;
+    }
+
+    public String getActionId(){
+        return actionId;
     }
 }

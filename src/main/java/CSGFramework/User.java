@@ -31,7 +31,7 @@ public class User {
         }
         // creates a new userAction
         // timeActionWasPerformed is equal to now + the time it takes to perform
-        performedActions.add(new UserAction(this, action, LocalDateTime.now().plusSeconds(action.getTimeActionTakesToPerformInMs()/1000)));
+        performedActions.add(new UserAction(this.id, action.getActionId(),currentViewingPage.getUrl(),LocalDateTime.now().plusSeconds(action.getTimeActionTakesToPerformInMs()/1000)));
     }
 
 

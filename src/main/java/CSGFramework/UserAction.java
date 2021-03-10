@@ -1,18 +1,26 @@
 package CSGFramework;
 
 import CSGFramework.Website.Action;
+import CSGFramework.Website.Page;
 
 import java.time.LocalDateTime;
 
 
 public class UserAction {
-    private User user;
-    private Action action;
+    private String userId;
+    private String actionId;
+    private String urlOfPageActionWasPerformedOn;
     private LocalDateTime timeActionWasPerformed;
 
-    public UserAction(User user, Action action, LocalDateTime timeActionWasPerformed){
-        this.user = user;
-        this.action = action;
+    public UserAction(String userId, String action, String urlOfPageActionWasPerformedOn,LocalDateTime timeActionWasPerformed){
+        this.userId = userId;
+        this.actionId = actionId;
+        this.urlOfPageActionWasPerformedOn = urlOfPageActionWasPerformedOn;
         this.timeActionWasPerformed = timeActionWasPerformed;
+    }
+
+    @Override
+    public String toString() {
+        return userId + " " + actionId + " " + " " + urlOfPageActionWasPerformedOn + " " + timeActionWasPerformed;
     }
 }

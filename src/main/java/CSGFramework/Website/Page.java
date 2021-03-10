@@ -20,4 +20,8 @@ public class Page {
     public List<Page> getLinkedPages() {
         return linkedPages;
     }
+
+    public String getUrl(){
+        return url;
+    }
 }

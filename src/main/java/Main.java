@@ -1,6 +1,8 @@
 import CSGFramework.Converters.Converter;
 import CSGFramework.Exceptions.WrongFileTypeException;
 import CSGFramework.Generator.ClickStreamGenerator;
+import CSGFramework.UserAction;
+import CSGFramework.UserActionBuilder;
 import CSGFramework.Website.Action;
 import CSGFramework.Writers.JSONWriter;
 
@@ -13,7 +15,7 @@ public class Main {
     public static void main(String[] args){
 
         ClickStreamGenerator generator = new ClickStreamGenerator();
-        List<Action> data = generator.generate();
+        List<UserAction> data = generator.generateCliksteram();
 
         JSONWriter writer = new JSONWriter();
 
@@ -24,8 +26,8 @@ public class Main {
             e.getMessage();
         }
 
-
-
+        UserAction action = new UserActionBuilder().setUser("123").build();
+        System.out.println(action);
     }
 
 }
