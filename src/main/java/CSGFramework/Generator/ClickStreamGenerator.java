@@ -15,13 +15,9 @@ import java.util.List;
 public class ClickStreamGenerator {
     private Website website;
     private List<User> users;
-    // all actions performed by all users
     private List<UserAction> generatedActions;
-    /**
-     * One of the options, sets how many lines should be generated.
-     */
     private int numberOfLinesToGenerate;
-    private List<String> includeInGeneratedData = List.of("userId","ationId","urlOfPageActionWasPerformedOn","timeActionWasPerformed");
+    private List<String> includeInGeneratedData; //= List.of("userId","ationId","urlOfPageActionWasPerformedOn","timeActionWasPerformed");
 
     private enum availableOptions{
         userId,
@@ -47,7 +43,7 @@ public class ClickStreamGenerator {
      * @return a list of actions that performed by a set of users.
      */
     public List<UserAction> generateCliksteram(){
-        //TODO: generate actions you lazy bastard
+        //TODO: generate actions
         return generatedActions;
     }
 
@@ -58,9 +54,7 @@ public class ClickStreamGenerator {
      * @param website a website object where one wats to see actions required to exhaust all routes
      * @return returns a list of actions performed by user object to exhaust all routes.
      */
-    public List<UserAction> exhaus(Website website){
-        // method that takes a makes a user exhaust all routes and returns
-        // a list of actions performed by user to exhaus all routes on a given website
+    public List<UserAction> exhaust(Website website){
         //TODO: let the user traverse the website, until they have visited all pages
         return generatedActions;
     }

@@ -10,7 +10,7 @@ import java.util.List;
  * interface for classes that write data to file
  */
 
- interface IWriter {
+ public interface IWriter {
 
      void writeToFile (String fileURL, List<UserAction> userActions) throws WrongFileTypeException;
 }

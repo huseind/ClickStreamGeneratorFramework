@@ -12,7 +12,7 @@ public class UserAction {
     private String urlOfPageActionWasPerformedOn;
     private LocalDateTime timeActionWasPerformed;
 
-    public UserAction(String userId, String action, String urlOfPageActionWasPerformedOn,LocalDateTime timeActionWasPerformed){
+    public UserAction(String userId, String actionId, String urlOfPageActionWasPerformedOn,LocalDateTime timeActionWasPerformed){
         this.userId = userId;
         this.actionId = actionId;
         this.urlOfPageActionWasPerformedOn = urlOfPageActionWasPerformedOn;

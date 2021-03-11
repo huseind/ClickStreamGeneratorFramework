@@ -4,7 +4,6 @@ import java.util.List;
 
 public class Page {
     private String url;
-    //This a list of edges/ pages, if we look at the weighted graph mentioned earlier
     private List<Page> linkedPages;
     private List<Action> possibleActions;
 
@@ -12,9 +11,14 @@ public class Page {
         //empty constructor
     }
 
-    public Page(List<Page> linkedPages, List<Action> possibleActions){
+    public Page(String url,List<Page> linkedPages, List<Action> possibleActions){
+        this.url = url;
         this.linkedPages = linkedPages;
         this.possibleActions = possibleActions;
+    }
+
+    public void addAction(Action action){
+        possibleActions.add(action);
     }
 
     public List<Page> getLinkedPages() {

@@ -14,7 +14,6 @@ public class UserActionBuilder {
     private String urlOfPageActionWasPerformedOn;
     private LocalDateTime timeActionWasPerformed;
 
-
     public UserActionBuilder setUser(String userId) {
         this.userId = userId;
         return this;

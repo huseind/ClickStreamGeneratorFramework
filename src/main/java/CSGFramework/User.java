@@ -16,7 +16,7 @@ public class User {
     private String id;
     private List<UserAction> performedActions;
     private Page currentViewingPage;
-    private List<Page> vistitedPages;
+    private List<Page> vistitedPages; // IS THIS NECCESARY?!?!?!?!
 
 
 

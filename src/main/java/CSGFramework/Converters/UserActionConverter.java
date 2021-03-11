@@ -4,13 +4,15 @@ import CSGFramework.UserAction;
 
 import java.util.List;
 
-public abstract class Converter {
+public abstract class UserActionConverter {
 
-    public static void convertUserActionToJson(List<UserAction> action){
+    public static String convertUserActionToJson(List<UserAction> action){
         //TODO: Implemt method to convert userAction to JSON format
+        return "";
     }
 
-    public static void convertUserActionsToCSV(List<UserAction> action){
+    public static String convertUserActionsToCSV(List<UserAction> action){
         //TODO: Implemt method to convert userAction to CSV format
+        return "";
     }
 }

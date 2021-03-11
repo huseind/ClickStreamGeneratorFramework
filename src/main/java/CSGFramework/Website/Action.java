@@ -3,22 +3,18 @@ package CSGFramework.Website;
 import java.util.Date;
 
 public class Action {
-    private String actionId; // can be name
-    // private String result; // result of action UNNECESSARY?
+    private String actionId;
     private int timeActionTakesToPerformInMs;
-    private boolean actionPerformed = false;
-    //private Date timeWhenActionWasPerformed;
     private boolean redirectingActions;
     private Page redirectsToPage;
 
-    private Page redirectsTo;
 
-
-    // CONSTRUCTORS //
-    public Action(){
-        //empty constructor
+    public Action(String actionId, int timeActionTakesToPerformInMs, boolean redirectingActions, Page redirectsToPage) {
+        this.actionId = actionId;
+        this.timeActionTakesToPerformInMs = timeActionTakesToPerformInMs;
+        this.redirectingActions = redirectingActions;
+        this.redirectsToPage = redirectsToPage;
     }
-
 
     public boolean isRedirectingActions() {
         return redirectingActions;
