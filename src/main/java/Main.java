@@ -67,6 +67,8 @@ public class Main {
         ClickStreamGenerator generator = new ClickStreamGeneratorBuilder().build();
         List<UserAction> data = generator.generateCliksteram();
         String dataInJson = UserActionConverter.convertUserActionToJson(data);
+
+        //TODO: do the scenarios over again with builders!
     }
 
 
