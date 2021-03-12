@@ -1,7 +1,4 @@
-package CSGFramework;
-
-import CSGFramework.Website.Action;
-import CSGFramework.Website.Page;
+package CSGFramework.User;
 
 import java.time.LocalDateTime;
 

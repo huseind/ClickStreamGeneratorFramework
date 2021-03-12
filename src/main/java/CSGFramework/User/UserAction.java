@@ -1,4 +1,4 @@
-package CSGFramework;
+package CSGFramework.User;
 
 import CSGFramework.Website.Action;
 import CSGFramework.Website.Page;

@@ -9,7 +9,7 @@ public class Action {
     private Page redirectsToPage;
 
 
-    public Action(String actionId, int timeActionTakesToPerformInMs, boolean redirectingActions, Page redirectsToPage) {
+    Action(String actionId, int timeActionTakesToPerformInMs, boolean redirectingActions, Page redirectsToPage) {
         this.actionId = actionId;
         this.timeActionTakesToPerformInMs = timeActionTakesToPerformInMs;
         this.redirectingActions = redirectingActions;

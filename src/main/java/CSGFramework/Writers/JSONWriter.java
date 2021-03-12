@@ -1,8 +1,7 @@
 package CSGFramework.Writers;
 
 import CSGFramework.Exceptions.WrongFileTypeException;
-import CSGFramework.UserAction;
-import CSGFramework.Website.Action;
+import CSGFramework.User.UserAction;
 
 import java.util.List;
 

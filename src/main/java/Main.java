@@ -1,21 +1,15 @@
 import CSGFramework.Converters.UserActionConverter;
-import CSGFramework.Exceptions.WrongFileTypeException;
 import CSGFramework.Generator.ClickStreamGenerator;
-import CSGFramework.UserAction;
-import CSGFramework.UserActionBuilder;
+import CSGFramework.Generator.ClickStreamGeneratorBuilder;
+import CSGFramework.User.UserAction;
 
-import CSGFramework.Website.Action;
-import CSGFramework.Website.Page;
-import CSGFramework.Website.Website;
-import CSGFramework.Writers.JSONWriter;
-
-
-import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Main {
 
     public static void main(String[] args){
+       /*
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         ClickStreamGenerator generator = new ClickStreamGenerator();
@@ -67,8 +61,12 @@ public class Main {
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         ClickStreamGenerator anotherGenerator = new ClickStreamGenerator();
-        generator.exclude("userId");
+        generator.generateFastestRoute(myWebsite,homePage,articlePage);
+        */
 
+        ClickStreamGenerator generator = new ClickStreamGeneratorBuilder().build();
+        List<UserAction> data = generator.generateCliksteram();
+        String dataInJson = UserActionConverter.convertUserActionToJson(data);
     }
 
 

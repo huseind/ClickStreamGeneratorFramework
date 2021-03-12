@@ -1,10 +1,9 @@
-package CSGFramework;
+package CSGFramework.User;
 
 import CSGFramework.Website.Action;
 import CSGFramework.Website.Page;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 
 import static java.lang.Thread.sleep;
@@ -21,7 +20,9 @@ public class User {
 
 
     // CONSTRUCTORS //
-    public User(String id) { this.id = id; }
+    User(String id) { this.id = id; }
+
+    User(String id, Page currentViewingPage) { this.id = id; this.currentViewingPage = currentViewingPage;}
 
 
     public void performAction(Action action) {

@@ -10,7 +10,7 @@ public class Website {
     private Page homePage;
     private List<Page> allPages;
 
-    public Website(String name, Page homePage, List<Page> allPages) {
+    Website(String name, Page homePage, List<Page> allPages) {
         this.name = name;
         this.homePage = homePage;
         this.allPages = allPages;

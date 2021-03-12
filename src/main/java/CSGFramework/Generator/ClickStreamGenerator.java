@@ -1,12 +1,12 @@
 package CSGFramework.Generator;
 
-import CSGFramework.User;
-import CSGFramework.UserAction;
-import CSGFramework.Website.Action;
+import CSGFramework.User.User;
+import CSGFramework.User.UserAction;
 import CSGFramework.Website.Page;
 import CSGFramework.Website.Website;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -17,21 +17,11 @@ public class ClickStreamGenerator {
     private List<User> users;
     private List<UserAction> generatedActions;
     private int numberOfLinesToGenerate;
-    private List<String> includeInGeneratedData; //= List.of("userId","ationId","urlOfPageActionWasPerformedOn","timeActionWasPerformed");
+    private List<String> includeInGeneratedData= new ArrayList<>(Arrays.asList("userId", "ationId", "urlOfPageActionWasPerformedOn", "timeActionWasPerformed"));
 
-    private enum availableOptions{
-        userId,
-        actionId,
-        urlOfPageActionWasPerformedOn,
-        timeActionWasPerformed
-    }
 
-    public ClickStreamGenerator(){
-        // empty constructor
-        // used if the client does not want to spesify a website or a set of users
-    }
 
-    public ClickStreamGenerator(Website website, List<User> users, int numberOfLinesToGenerate){
+    ClickStreamGenerator(Website website, List<User> users, int numberOfLinesToGenerate){
         // constructor
         this.website = website;
         this.users = users;
@@ -76,8 +66,9 @@ public class ClickStreamGenerator {
      * @param fieldToExclude takes a string what
      */
     public void exclude(String fieldToExclude){
-        if (includeInGeneratedData.contains(fieldToExclude)){
+        if(includeInGeneratedData.contains(fieldToExclude)){
             includeInGeneratedData.remove(fieldToExclude);
+
         }
     }
 
