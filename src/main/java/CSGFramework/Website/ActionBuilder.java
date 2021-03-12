@@ -7,11 +7,7 @@ public class ActionBuilder {
     private int timeActionTakesToPerformInMs = generateRandomInt();
     private boolean redirectingActions = false;
     private Page redirectsToPage = null;
-
-
-
-
-
+    private double chanceOfActonBeingPerformed = 0.5;
 
 
 

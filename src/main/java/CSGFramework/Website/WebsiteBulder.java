@@ -24,8 +24,8 @@ public class WebsiteBulder {
         return this;
     }
 
-    public WebsiteBulder addPage(List<Page> allPages) {
-        this.allPages.addAll(allPages);
+    public WebsiteBulder addPage(Page page) {
+        this.allPages.add(page);
         return this;
     }
 

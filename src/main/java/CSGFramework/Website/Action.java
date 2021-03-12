@@ -7,6 +7,7 @@ public class Action {
     private int timeActionTakesToPerformInMs;
     private boolean redirectingActions;
     private Page redirectsToPage;
+    private double chanceOfActonBeingPerformed;
 
 
     Action(String actionId, int timeActionTakesToPerformInMs, boolean redirectingActions, Page redirectsToPage) {
