@@ -10,6 +10,7 @@ public class Action {
     private double chanceOfActonBeingPerformed;
 
 
+
     Action(String actionId, int timeActionTakesToPerformInMs, boolean redirectingActions, Page redirectsToPage) {
         this.actionId = actionId;
         this.timeActionTakesToPerformInMs = timeActionTakesToPerformInMs;
