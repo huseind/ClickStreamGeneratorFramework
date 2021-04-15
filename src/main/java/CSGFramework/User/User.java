@@ -35,5 +35,10 @@ public class User {
         performedActions.add(new UserAction(this.id, action.getActionId(),currentViewingPage.getUrl(),LocalDateTime.now().plusSeconds(action.getTimeActionTakesToPerformInMs()/1000)));
     }
 
+    @Override
+    public String toString(){
+        return id;
+    }
+
 
 }
