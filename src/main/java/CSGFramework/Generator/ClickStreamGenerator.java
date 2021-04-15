@@ -61,16 +61,6 @@ public class ClickStreamGenerator {
         return generatedActions;
     }
 
-    /**
-     *
-     * @param fieldToExclude takes a string what
-     */
-    public void exclude(String fieldToExclude){
-        if(includeInGeneratedData.contains(fieldToExclude)){
-            includeInGeneratedData.remove(fieldToExclude);
-
-        }
-    }
 
     /**
      * Method that clears all generated actions from the generator
