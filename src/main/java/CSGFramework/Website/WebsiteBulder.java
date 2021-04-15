@@ -5,8 +5,8 @@ import java.util.List;
 
 public class WebsiteBulder {
     private String name = "mywebsite.com";
-    private Page homePage; //TODO: Add a default homepage
-    private List<Page> allPages = new ArrayList<>();
+    private Page homePage = new PageBuilder().setUrl(name).build();
+    private List<Page> allPages = new ArrayList<>(){{add(homePage);}};
 
 
     public WebsiteBulder setName(String name) {

@@ -23,4 +23,9 @@ public class Page {
     public String getUrl(){
         return url;
     }
+
+    @Override
+    public String toString(){
+        return url;
+    }
 }

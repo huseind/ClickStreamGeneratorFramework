@@ -16,4 +16,9 @@ public class Website {
         this.allPages = allPages;
     }
 
+    @Override
+    public String toString(){
+        return "Name: " + name + "\n" + "HomePage " + homePage.getUrl() + "\n" + "All pages" + allPages;
+    }
+
 }

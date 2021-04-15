@@ -21,6 +21,7 @@ public class Main {
 
         //Creating a default website mock with builder
         Website myWebsite = new WebsiteBulder().build();
+        System.out.println(myWebsite.toString());
 
 
         //Creating a customized page with an action and adding it to a website mock with the builders
