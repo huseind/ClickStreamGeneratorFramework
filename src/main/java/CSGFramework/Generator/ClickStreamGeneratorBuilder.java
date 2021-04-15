@@ -6,7 +6,6 @@ import CSGFramework.Website.Website;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.EnumSet;
 import java.util.List;
 
 /**
@@ -18,7 +17,7 @@ public class ClickStreamGeneratorBuilder {
     private List<User> users = generateUsers();
     private int numberOfLinesToGenerate = 100;
     //TODO: This list should contain values from AvailableOptions enum
-    private List<AvailableOptions> includeInGeneratedData = new ArrayList<>(Arrays.asList(AvailableOptions.class.getEnumConstants()));//new ArrayList<>(Arrays.asList("userId", "ationId", "urlOfPageActionWasPerformedOn", "timeActionWasPerformed"));
+    private List<AvailableOptions> includedDataFields = new ArrayList<>(Arrays.asList(AvailableOptions.class.getEnumConstants()));//new ArrayList<>(Arrays.asList("userId", "ationId", "urlOfPageActionWasPerformedOn", "timeActionWasPerformed"));
 
 
     public ClickStreamGeneratorBuilder setWebsite(Website website) {
@@ -56,12 +55,12 @@ public class ClickStreamGeneratorBuilder {
     public ClickStreamGeneratorBuilder excludeDate(){
         //TODO: Create multiple exlude...() methods, so the user can choose to exclude columns
         // in the data that is generated
-        includeInGeneratedData.remove(AvailableOptions.timeActionWasPerformed);
+        includedDataFields.remove(AvailableOptions.timeActionWasPerformed);
         return this;
     }
 
     public ClickStreamGenerator build(){
-        System.out.println(includeInGeneratedData);
+        System.out.println(includedDataFields);
 
         return new ClickStreamGenerator(website,users,numberOfLinesToGenerate);
     }

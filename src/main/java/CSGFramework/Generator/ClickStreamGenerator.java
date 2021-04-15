@@ -17,7 +17,7 @@ public class ClickStreamGenerator {
     private List<User> users;
     private List<UserAction> generatedActions;
     private int numberOfLinesToGenerate;
-    private List<String> includeInGeneratedData= new ArrayList<>(Arrays.asList("userId", "ationId", "urlOfPageActionWasPerformedOn", "timeActionWasPerformed"));
+    private List<String> includedDataFields = new ArrayList<>(Arrays.asList("userId", "ationId", "urlOfPageActionWasPerformedOn", "timeActionWasPerformed"));
 
 
 
