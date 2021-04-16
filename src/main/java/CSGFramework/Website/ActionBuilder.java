@@ -5,8 +5,6 @@ import java.util.concurrent.ThreadLocalRandom;
 public class ActionBuilder {
     private String actionId = generateRandomActionId();
     private int timeActionTakesToPerformInMs = generateRandomInt();
-    private boolean redirectingActions = false;
-    private Page redirectsToPage = null;
     private double chanceOfActonBeingPerformed = 0.5;
 
 
@@ -50,17 +48,8 @@ public class ActionBuilder {
         return this;
     }
 
-    public ActionBuilder setRedirectingActions(boolean redirectingActions) {
-        this.redirectingActions = redirectingActions;
-        return this;
-    }
-
-    public ActionBuilder setRedirectsToPage(Page redirectsToPage) {
-        this.redirectsToPage = redirectsToPage;
-        return this;
-    }
 
     public Action build(){
-        return new Action(actionId,timeActionTakesToPerformInMs,redirectingActions,redirectsToPage);
+        return new Action(actionId,timeActionTakesToPerformInMs,chanceOfActonBeingPerformed);
     }
 }

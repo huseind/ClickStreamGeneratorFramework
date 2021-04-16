@@ -1,24 +1,21 @@
 package CSGFramework.Website;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Page {
+    private Website website;
     private String url;
-    private List<Page> linkedPages = new ArrayList<>();
-    private List<Action> possibleActions = new ArrayList<>();
+    private HashMap<Action,Page> possibleActions;
 
 
-    Page(String url,List<Page> linkedPages, List<Action> possibleActions){
+    Page(String url, HashMap<Action,Page> possibleActions){
         this.url = url;
-        this.linkedPages = linkedPages;
         this.possibleActions = possibleActions;
     }
 
 
-    public List<Page> getLinkedPages() {
-        return linkedPages;
-    }
 
     public String getUrl(){
         return url;

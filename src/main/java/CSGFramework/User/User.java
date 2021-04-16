@@ -25,14 +25,19 @@ public class User {
     User(String id, Page currentViewingPage) { this.id = id; this.currentViewingPage = currentViewingPage;}
 
 
+    public void setCurrentViewingPage(Page currentViewingPage) {
+        this.currentViewingPage = currentViewingPage;
+    }
+
     public void performAction(Action action) {
         //TODO: Here we should check if this action exists on the current page
-        if(action.isRedirectingActions()){
+        /*if(action.isRedirectingActions()){
             currentViewingPage = action.getRedirectsToPage();
         }
         // creates a new userAction
         // timeActionWasPerformed is equal to now + the time it takes to perform
         performedActions.add(new UserAction(this.id, action.getActionId(),currentViewingPage.getUrl(),LocalDateTime.now().plusSeconds(action.getTimeActionTakesToPerformInMs()/1000)));
+        */
     }
 
     @Override

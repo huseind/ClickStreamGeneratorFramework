@@ -3,29 +3,30 @@ package CSGFramework.Website;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WebsiteBulder {
+public class WebsiteBuilder {
     private String name = "mywebsite.com";
     private Page homePage = new PageBuilder().setUrl(name).build();
     private List<Page> allPages = new ArrayList<>(){{add(homePage);}};
 
 
-    public WebsiteBulder setName(String name) {
+    public WebsiteBuilder setName(String name) {
         this.name = name;
         return this;
     }
 
-    public WebsiteBulder setHomePage(Page homePage) {
+    public WebsiteBuilder setHomePage(Page homePage) {
         this.homePage = homePage;
         return this;
     }
 
-    public WebsiteBulder addPages(List<Page> allPages) {
+    public WebsiteBuilder addPages(List<Page> allPages) {
         this.allPages.addAll(allPages);
         return this;
     }
 
-    public WebsiteBulder addPage(Page page) {
+    public WebsiteBuilder addPage(Page page) {
         this.allPages.add(page);
+
         return this;
     }
 

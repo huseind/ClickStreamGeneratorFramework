@@ -5,4 +5,5 @@ public enum AvailableOptions {
     actionId,
     urlOfPageActionWasPerformedOn,
     timeActionWasPerformed
+    // TODO: include more options
 }
