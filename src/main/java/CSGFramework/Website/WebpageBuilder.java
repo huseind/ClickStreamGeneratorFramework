@@ -118,6 +118,21 @@ public class WebpageBuilder {
     }
 
     /**
+     * Overriding method: This one does not take a website as a param, and will only redirect to external websites.
+     * Should only be used on single page websites!
+     * @param numberOfRedirectingActions the number of actions to generate
+     * @return an instance of the builder
+     */
+    public WebpageBuilder generateRedirectingActions(int numberOfRedirectingActions){
+        HashMap<Action, Webpage> returnMap = new HashMap<>();
+        for(int i = 0; i < numberOfRedirectingActions; i++){
+            returnMap.put(new ActionBuilder().build(),new WebpageBuilder().setUrl("randompage" + i +".com").build());
+        }
+        possibleActions.putAll(returnMap);
+        return this;
+    }
+
+    /**
      * Method that generates non redirecting actions
      * @param a is the number of redirecting action generated for this webpage
      * @return returns an instance of the WebpageBuilder
