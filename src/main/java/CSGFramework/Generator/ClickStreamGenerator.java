@@ -15,6 +15,7 @@ import java.util.List;
 public class ClickStreamGenerator {
     private Website website;
     private List<User> users;
+    // REDUNDANT? user has useractions...
     private List<UserAction> generatedActions;
     private int numberOfLinesToGenerate;
     private List<String> includedDataFields = new ArrayList<>(Arrays.asList("userId", "ationId", "urlOfPageActionWasPerformedOn", "timeActionWasPerformed"));
@@ -33,7 +34,11 @@ public class ClickStreamGenerator {
      * @return a list of actions that performed by a set of users.
      */
     public List<UserAction> generateCliksteram(){
-        //TODO: generate actions
+        for (User user: users) {
+            for (int i = 0; i < numberOfLinesToGenerate; i++){
+                user.perform(2);
+            }
+        }
         return generatedActions;
     }
 

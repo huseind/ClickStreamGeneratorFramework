@@ -13,10 +13,23 @@ public class WebpageTest {
         assertTrue(new WebpageBuilder().build() instanceof Webpage);
     }
 
-    Website site = new WebsiteBuilder().build();
+    Website site = new WebsiteBuilder().addPage(new WebpageBuilder().setUrl("mywebsite.com/lol").build()).build();
+    Webpage page = new WebpageBuilder().generateRedirectingActions(2, site).build();
+
+    @Test // Testing generating redirecting on a page that belongs to a website.
+    public void generateRedirectingActionsOnWebsiteTests(){
+        Webpage page = new WebpageBuilder().generateRedirectingActions(2, site).build();
+        assertTrue(page.getNumberOfActions() == 2);
+    }
 
     @Test
-    public void generateRedirectingActionsTests(){
-        assertTrue(new WebpageBuilder().generateRedirectingActions(20,site).build().getNumberOfActions() == 20);
+    public void sumething(){
+        site.addWebpage(page);
+
+    }
+
+    @Test // Testing generating actions on a page without a website, redirects to external websites
+    public void generateRedirectingActionsTest(){
+        assertTrue(new WebpageBuilder().generateRedirectingActions(19).build().getNumberOfActions() == 19);
     }
 }

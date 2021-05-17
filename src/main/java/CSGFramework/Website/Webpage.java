@@ -27,6 +27,10 @@ public class Webpage {
         return possibleActions.size();
     }
 
+    public HashMap<Action,Webpage> getPossibleActions(){
+        return possibleActions;
+    }
+
 
     public String getUrl(){
         return url;

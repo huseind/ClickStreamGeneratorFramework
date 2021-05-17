@@ -12,6 +12,7 @@ public class Main {
 
     public static void main(String[] args){
 
+        /*
         // Generate clickstream data without any options specified
         ClickStreamGenerator generator = new ClickStreamGeneratorBuilder().build();
         List<UserAction> data = generator.generateCliksteram();
@@ -67,6 +68,9 @@ public class Main {
         Webpage webpaage = new WebpageBuilder().build();
         webSute.addWebpage(webpaage);
 
+*/
+        ClickStreamGenerator csg = new ClickStreamGeneratorBuilder().build();
+        csg.generateCliksteram();
 
     }
 
