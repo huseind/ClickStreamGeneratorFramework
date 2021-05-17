@@ -4,8 +4,11 @@ import CSGFramework.Website.Action;
 import CSGFramework.Website.Webpage;
 
 import javax.swing.text.html.HTMLDocument;
+import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 import static java.lang.Thread.sleep;
 
@@ -39,35 +42,40 @@ public class User {
      * Method that makes a user perform an action, a action is added to the user list of performed actions
      * @param action
      */
+    /*
     public void performAction(Action action) {
         //TODO: Here we should check if this action exists on the current page
         // MAYBE REMOVE???
-        /*if(action.isRedirectingActions()){
+        if(action.isRedirectingActions()){
             currentViewingWebpage = action.getRedirectsToPage();
         }
         // creates a new userAction
         // timeActionWasPerformed is equal to now + the time it takes to perform
         performedActions.add(new UserAction(this.id, action.getActionId(),currentViewingWebpage.getUrl(),LocalDateTime.now().plusSeconds(action.getTimeActionTakesToPerformInMs()/1000)));
-        */
-    }
 
+    }
+*/
     // new before final
     /**
      * Method for a user to perform a set number of actions.
      * Starts at home page and does and action, if the action is redirecting, currentViewingPage changes
      * @param numberOfActionsToPerform
      */
-    public void perform(int numberOfActionsToPerform){
+    public void perform(int numberOfActionsToPerform){ //TODO: user has to choose a random action to perform and try not to perform the same action multiple times
+        long now = System.currentTimeMillis();
         for(int i = 0; i < numberOfActionsToPerform; i ++){
             HashMap<Action,Webpage> actions = currentViewingWebpage.getPossibleActions();
             Iterator iterator = actions.entrySet().iterator();
             while (iterator.hasNext()) {
                 Map.Entry pair = (Map.Entry) iterator.next();
                 Action performedAction = (Action) pair.getKey();
-                performedActions.add(new UserAction(this.id,performedAction.getActionId(),currentViewingWebpage.getUrl(), LocalDateTime.now()));
+                now = now + performedAction.getTimeActionTakesToPerformInMs();
+                performedActions.add(new UserAction(this.id,performedAction.getActionId(),currentViewingWebpage.getUrl(), LocalDateTime.ofInstant(Instant.ofEpochMilli(now), ZoneId.systemDefault())));
                 if(pair.getValue() != null){
                     currentViewingWebpage = (Webpage) pair.getValue();
                 }
+
+
 
             }
         }

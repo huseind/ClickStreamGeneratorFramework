@@ -6,7 +6,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class ActionBuilder {
     private String actionId = generateRandomActionId();
-    private int timeActionTakesToPerformInMs = generateRandomInt();
+    private int timeActionTakesToPerformInMs =  generateRandomInt();
     private double chanceOfActonBeingPerformed = 0.5;
 
     // new before final
@@ -24,7 +24,7 @@ public class ActionBuilder {
     private String generateRandomActionId(){ //TODO: Should not create two equal strings
 
         String listOfCharFor = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "0123456789";
-        StringBuilder stringBuilder = new StringBuilder(3);
+        String stringBuilder = "";
 
         for (int i = 0; i < 3; i++) {
 
@@ -33,8 +33,7 @@ public class ActionBuilder {
             int index = (int)(listOfCharFor.length() * Math.random());
 
             // add Character one by one in end of stringBuilder
-            stringBuilder.append(listOfCharFor
-                    .charAt(index));
+            stringBuilder += listOfCharFor.charAt(index);
         }
         if (alreadyGeneratedIds.contains(stringBuilder.toString())){
             return generateRandomActionId();
@@ -48,7 +47,7 @@ public class ActionBuilder {
      * @return a random int between 10, 1000
      */
     private int generateRandomInt(){
-        return ThreadLocalRandom.current().nextInt(10, 1000 + 1);
+        return ThreadLocalRandom.current().nextInt(100, 10000 + 1);
     }
 
 

@@ -35,9 +35,7 @@ public class ClickStreamGenerator {
      */
     public List<UserAction> generateCliksteram(){
         for (User user: users) {
-            for (int i = 0; i < numberOfLinesToGenerate; i++){
                 user.perform(2);
-            }
         }
         return generatedActions;
     }
