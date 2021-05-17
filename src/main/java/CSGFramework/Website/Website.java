@@ -1,5 +1,6 @@
 package CSGFramework.Website;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -7,28 +8,36 @@ import java.util.List;
  */
 public class Website {
     private String name;
-    private Page homePage;
-    private List<Page> allPages;
+    private Webpage homeWebpage;
+    private List<Webpage> allWebpages;
 
-    Website(String name, Page homePage, List<Page> allPages) {
+    Website(String name, Webpage homeWebpage, List<Webpage> allWebpages) {
         this.name = name;
-        this.homePage = homePage;
-        this.allPages = allPages;
+        this.homeWebpage = homeWebpage;
+        this.allWebpages = allWebpages;
     }
 
-    public Page getHomePage() {
-        return homePage;
+    public Webpage getHomeWebpage() {
+        return homeWebpage;
     }
 
-    public List<Page> getAllPages() {
-        return allPages;
+    public List<Webpage> getAllWebpages() {
+        return allWebpages;
     }
-
 
 
     @Override
     public String toString(){
-        return "Name: " + name + "\n" + "HomePage " + homePage.getUrl() + "\n" + "All pages" + allPages;
+        return "Name: " + name + "\n" + "HomePage " + homeWebpage.getUrl() + "\n" + "All pages" + allWebpages;
+    }
+
+    // new Before final
+    public void addWebpage(Webpage page){
+        allWebpages.add(page);
+    }
+
+    public void addWebpages(ArrayList<Webpage> pages){
+        allWebpages.addAll(pages);
     }
 
 }

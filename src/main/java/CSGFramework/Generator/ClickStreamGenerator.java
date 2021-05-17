@@ -2,7 +2,7 @@ package CSGFramework.Generator;
 
 import CSGFramework.User.User;
 import CSGFramework.User.UserAction;
-import CSGFramework.Website.Page;
+import CSGFramework.Website.Webpage;
 import CSGFramework.Website.Website;
 
 import java.util.ArrayList;
@@ -52,11 +52,11 @@ public class ClickStreamGenerator {
     /**
      *
      * @param website a website where both pages exist
-     * @param fromPage the page where we want to start
-     * @param toPage the page where we want to end up
-     * @return list of least amount of actions required to go from fromPage to toPage
+     * @param fromWebpage the page where we want to start
+     * @param toWebpage the page where we want to end up
+     * @return list of least amount of actions required to go from fromWebpage to toWebpage
      */
-    public List<UserAction> generateFastestRoute(Website website, Page fromPage, Page toPage){
+    public List<UserAction> generateFastestRoute(Website website, Webpage fromWebpage, Webpage toWebpage){
         //  TODO: impement the method that finds the fastest route from one page to another in a website
         return generatedActions;
     }

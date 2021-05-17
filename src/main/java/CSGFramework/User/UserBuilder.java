@@ -1,23 +1,23 @@
 package CSGFramework.User;
 
-import CSGFramework.Website.Page;
+import CSGFramework.Website.Webpage;
 
 public class UserBuilder {
 
     private String id;
-    private Page currentViewingPage = null;
+    private Webpage currentViewingWebpage = null;
 
     public UserBuilder setId(String id) {
         this.id = id;
         return this;
     }
 
-    public UserBuilder setCurrentViewingPage(Page currentViewingPage) {
-        this.currentViewingPage = currentViewingPage;
+    public UserBuilder setCurrentViewingWebpage(Webpage currentViewingWebpage) {
+        this.currentViewingWebpage = currentViewingWebpage;
         return this;
     }
 
     public User build(){
-        return new User(id,currentViewingPage);
+        return new User(id, currentViewingWebpage);
     }
 }

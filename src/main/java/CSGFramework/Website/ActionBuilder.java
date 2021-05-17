@@ -1,5 +1,7 @@
 package CSGFramework.Website;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class ActionBuilder {
@@ -7,12 +9,16 @@ public class ActionBuilder {
     private int timeActionTakesToPerformInMs = generateRandomInt();
     private double chanceOfActonBeingPerformed = 0.5;
 
+    // new before final
+    private static List<String> alreadyGeneratedIds = new ArrayList<>();
+
 
 
 
 
     /**
-     * Method for generating random actioid
+     * Method for generating random actioid,
+     * It checks if
      * @return
      */
     private String generateRandomActionId(){ //TODO: Should not create two equal strings
@@ -30,9 +36,17 @@ public class ActionBuilder {
             stringBuilder.append(listOfCharFor
                     .charAt(index));
         }
+        if (alreadyGeneratedIds.contains(stringBuilder.toString())){
+            return generateRandomActionId();
+        }
         return stringBuilder.toString();
     }
 
+
+    /**
+     * Method used in generating random actionID, used to set timeToPerformAction();
+     * @return a random int between 10, 1000
+     */
     private int generateRandomInt(){
         return ThreadLocalRandom.current().nextInt(10, 1000 + 1);
     }

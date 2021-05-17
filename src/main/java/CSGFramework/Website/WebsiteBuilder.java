@@ -5,8 +5,8 @@ import java.util.List;
 
 public class WebsiteBuilder {
     private String name = "mywebsite.com";
-    private Page homePage = new PageBuilder().setUrl(name).build();
-    private List<Page> allPages = new ArrayList<>(){{add(homePage);}};
+    private Webpage homeWebpage = new WebpageBuilder().setUrl(name).build();
+    private List<Webpage> allWebpages = new ArrayList<>(){{add(homeWebpage);}};
 
 
     public WebsiteBuilder setName(String name) {
@@ -14,24 +14,24 @@ public class WebsiteBuilder {
         return this;
     }
 
-    public WebsiteBuilder setHomePage(Page homePage) {
-        this.homePage = homePage;
+    public WebsiteBuilder setHomeWebpage(Webpage homeWebpage) {
+        this.homeWebpage = homeWebpage;
         return this;
     }
 
-    public WebsiteBuilder addPages(List<Page> allPages) {
-        this.allPages.addAll(allPages);
+    public WebsiteBuilder addPages(List<Webpage> allWebpages) {
+        this.allWebpages.addAll(allWebpages);
         return this;
     }
 
-    public WebsiteBuilder addPage(Page page) {
-        this.allPages.add(page);
+    public WebsiteBuilder addPage(Webpage webpage) {
+        this.allWebpages.add(webpage);
 
         return this;
     }
 
     public Website build(){
-        return new Website(name,homePage,allPages);
+        return new Website(name, homeWebpage, allWebpages);
     }
 
 
