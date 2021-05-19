@@ -9,7 +9,8 @@ import java.util.List;
 
 public abstract class UserActionConverter {
 
-    public static ArrayList<String> convertUserActionToJson(List<UserAction> actions){
+    public static JsonObject convertUserActionToJson(List<UserAction> actions){
+        /*
         ArrayList<String> userActionsJson = new ArrayList<>();
         Gson gson = new Gson();
         for (UserAction action:actions) {
@@ -17,6 +18,10 @@ public abstract class UserActionConverter {
             userActionsJson.add(stringAction);
         }
         return userActionsJson;
+        */
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.add("userActions",new Gson().toJsonTree(actions));
+        return jsonObject;
     }
 
     public static String convertUserActionsToCSV(List<UserAction> action){

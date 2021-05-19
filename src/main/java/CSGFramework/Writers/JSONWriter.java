@@ -1,8 +1,18 @@
 package CSGFramework.Writers;
 
+import CSGFramework.Converters.UserActionConverter;
 import CSGFramework.Exceptions.WrongFileTypeException;
+import CSGFramework.User.User;
 import CSGFramework.User.UserAction;
+import com.google.gson.JsonObject;
 
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -16,6 +26,30 @@ public class JSONWriter implements IWriter{
         // TODO implement write to file JSON
         // will probably throw an exeption if the spesified file is not a json file
         //should not throw an exeption if the file does not exist, just create one.
+        String extention = fileURL.split("\\.")[1];
+        if (!extention.equalsIgnoreCase("json")){
+            throw new WrongFileTypeException();
+        }
+        BufferedWriter output = null;
+        try {
+            File file = new File(fileURL);
+            output = new BufferedWriter(new FileWriter(file));
+            JsonObject jsonObject = UserActionConverter.convertUserActionToJson(userActions);
+
+                output.write(jsonObject.toString());
+
+
+        } catch ( IOException e ) {
+            e.printStackTrace();
+        } finally {
+            if ( output != null ) {
+                try {
+                    output.close();
+                }catch (IOException e){
+                    e.printStackTrace();
+                }
+            }
+        }
 
     }
 }

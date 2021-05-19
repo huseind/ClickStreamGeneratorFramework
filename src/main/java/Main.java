@@ -7,6 +7,8 @@ import CSGFramework.User.UserAction;
 import CSGFramework.User.UserBuilder;
 import CSGFramework.Website.*;
 import CSGFramework.Writers.IWriter;
+import CSGFramework.Writers.JSONWriter;
+import com.google.gson.stream.JsonWriter;
 
 import java.util.List;
 
@@ -75,6 +77,12 @@ public class Main {
         ClickStreamGenerator csg = new ClickStreamGeneratorBuilder().addUser(hus).build();
         csg.generateCliksteram();
         System.out.println(UserActionConverter.convertUserActionToJson(hus.getPerformedActions()));
+        try {
+            JSONWriter jsonWriter = new JSONWriter();
+            jsonWriter.writeToFile("hei.json",hus.getPerformedActions());
+        }catch (WrongFileTypeException e){
+            e.printStackTrace();;
+        }
     }
 
 
