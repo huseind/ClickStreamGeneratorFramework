@@ -13,8 +13,10 @@ public class ActionBuilder {
     private static List<String> alreadyGeneratedIds = new ArrayList<>();
 
 
-
-
+    public ActionBuilder setChanceOfActonBeingPerformed(double chanceOfActonBeingPerformed) {
+        this.chanceOfActonBeingPerformed = chanceOfActonBeingPerformed;
+        return this;
+    }
 
     /**
      * Method for generating random actioid,
@@ -30,14 +32,15 @@ public class ActionBuilder {
 
             // generate a random number between
             // 0 to listOfCharFor variable length
-            int index = (int)(listOfCharFor.length() * Math.random());
+            //int index = (int)(listOfCharFor.length() * Math.random());
+            int index = (int) (Math.random() * 36);
 
             // add Character one by one in end of stringBuilder
             stringBuilder += listOfCharFor.charAt(index);
         }
-        if (alreadyGeneratedIds.contains(stringBuilder.toString())){
+        /* if (alreadyGeneratedIds.contains(stringBuilder.toString())){
             return generateRandomActionId();
-        }
+        }*/
         return stringBuilder.toString();
     }
 

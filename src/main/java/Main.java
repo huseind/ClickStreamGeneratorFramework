@@ -1,6 +1,8 @@
+import CSGFramework.Converters.UserActionConverter;
 import CSGFramework.Exceptions.WrongFileTypeException;
 import CSGFramework.Generator.ClickStreamGenerator;
 import CSGFramework.Generator.ClickStreamGeneratorBuilder;
+import CSGFramework.User.User;
 import CSGFramework.User.UserAction;
 import CSGFramework.User.UserBuilder;
 import CSGFramework.Website.*;
@@ -69,9 +71,10 @@ public class Main {
         webSute.addWebpage(webpaage);
 
 */
-        ClickStreamGenerator csg = new ClickStreamGeneratorBuilder().build();
+        User hus = new UserBuilder().setId("Husein").build();
+        ClickStreamGenerator csg = new ClickStreamGeneratorBuilder().addUser(hus).build();
         csg.generateCliksteram();
-
+        System.out.println(UserActionConverter.convertUserActionToJson(hus.getPerformedActions()));
     }
 
 

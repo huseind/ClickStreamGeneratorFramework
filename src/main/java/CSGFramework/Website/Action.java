@@ -15,7 +15,9 @@ public class Action {
         this.chanceOfActonBeingPerformed = chanceOfActonBeingPerformed;
     }
 
-
+    public double getChanceOfActonBeingPerformed() {
+        return chanceOfActonBeingPerformed;
+    }
 
     public int getTimeActionTakesToPerformInMs() {
         return timeActionTakesToPerformInMs;

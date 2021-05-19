@@ -61,7 +61,7 @@ public class User {
      * Starts at home page and does and action, if the action is redirecting, currentViewingPage changes
      * @param numberOfActionsToPerform
      */
-    public void perform(int numberOfActionsToPerform){ //TODO: user has to choose a random action to perform and try not to perform the same action multiple times
+    public void perform(int numberOfActionsToPerform){ //TODO: user has to choose a "random" action to perform and try not to perform the same action multiple times
         long now = System.currentTimeMillis();
         for(int i = 0; i < numberOfActionsToPerform; i ++){
             HashMap<Action,Webpage> actions = currentViewingWebpage.getPossibleActions();
@@ -82,6 +82,11 @@ public class User {
         for (UserAction action:performedActions) {
             System.out.println("WOOP " +action.toString());
         }
+    }
+
+    // TODO: REMOVE THIS!!!
+    public List<UserAction> getPerformedActions() {
+        return performedActions;
     }
 
     @Override
