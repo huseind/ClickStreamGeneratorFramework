@@ -54,11 +54,9 @@ public class UserTest {
     @Test
     public void exhaustTest(){
         List<UserAction> actions =clickStreamGenerator.exhaust();
-
-        for(UserAction action:actions) {
-            System.out.println(action);
+        assertTrue(actions.size() > website.getAllWebpages().size());
         }
     }
 
 
-}
+
