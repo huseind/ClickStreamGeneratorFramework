@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * Builder for the action class
+ */
 public class ActionBuilder {
     private String actionId = generateRandomActionId();
     private int timeActionTakesToPerformInMs =  generateRandomInt();
@@ -20,28 +23,27 @@ public class ActionBuilder {
 
     /**
      * Method for generating random actioid,
-     * It checks if
+     * does not generate identical ids
      * @return
      */
     private String generateRandomActionId(){ //TODO: Should not create two equal strings
 
         String listOfCharFor = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "0123456789";
-        String stringBuilder = "";
+        String returnString = "";
 
         for (int i = 0; i < 3; i++) {
 
-            // generate a random number between
+            // generate a random char and number between
             // 0 to listOfCharFor variable length
-            //int index = (int)(listOfCharFor.length() * Math.random());
             int index = (int) (Math.random() * 36);
 
-            // add Character one by one in end of stringBuilder
-            stringBuilder += listOfCharFor.charAt(index);
+            // add Character one by one in end of returnString
+            returnString += listOfCharFor.charAt(index);
         }
-        /* if (alreadyGeneratedIds.contains(stringBuilder.toString())){
+         if (alreadyGeneratedIds.contains(returnString.toString())){
             return generateRandomActionId();
-        }*/
-        return stringBuilder.toString();
+        }
+        return returnString;
     }
 
 
@@ -53,18 +55,31 @@ public class ActionBuilder {
         return ThreadLocalRandom.current().nextInt(100, 10000 + 1);
     }
 
-
+    /**
+     * Sets the id of the action
+     * @param actionId String, the id of the action
+     * @return this instance of the builder
+     */
     public ActionBuilder setActionId(String actionId) {
         this.actionId = actionId;
         return this;
     }
 
+    /**
+     * sets time it takes to perform the action
+     * @param timeActionTakesToPerformInMs int, the time in ms it takes to perform the action
+     * @return this instance of the builder
+     */
     public ActionBuilder setTimeActionTakesToPerformInMs(int timeActionTakesToPerformInMs) {
         this.timeActionTakesToPerformInMs = timeActionTakesToPerformInMs;
         return this;
     }
 
 
+    /**
+     * builds an instance of an action
+     * @return Action with all the values set
+     */
     public Action build(){
         return new Action(actionId,timeActionTakesToPerformInMs,chanceOfActonBeingPerformed);
     }

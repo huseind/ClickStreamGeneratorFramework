@@ -3,8 +3,6 @@ import CSGFramework.Generator.ClickStreamGenerator;
 import CSGFramework.Generator.ClickStreamGeneratorBuilder;
 import CSGFramework.User.User;
 import CSGFramework.User.UserBuilder;
-import CSGFramework.Website.Webpage;
-import CSGFramework.Website.WebpageBuilder;
 import CSGFramework.Website.Website;
 import CSGFramework.Website.WebsiteBuilder;
 import CSGFramework.Writers.CSVWriter;
@@ -16,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class UserTest {
 
     User user = new UserBuilder().setId("Husein").build();
-    ClickStreamGenerator csg = new ClickStreamGeneratorBuilder().setNumberOfLinesToGenerate(2).addUser(user).build();
+    ClickStreamGenerator csg = new ClickStreamGeneratorBuilder().setNumberOfActionsToGenerate(2).addUser(user).build();
 
     @Test
     public void performTest(){

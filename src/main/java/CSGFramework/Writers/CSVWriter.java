@@ -18,13 +18,15 @@ import java.util.List;
 public class CSVWriter {
 
     public CSVWriter(){
-
     }
 
+    /**
+     * writes csv data to file
+     * @param filename the file data should be written to
+     * @param userActions, List of UserActions to be written to file
+     * @throws WrongFileTypeException exception thrown when the file extension does not mach .csv
+     */
     public void writeToFile(String filename, List<UserAction> userActions) throws WrongFileTypeException {
-        // TODO implement write to file JSON
-        // will probably throw an exeption if the spesified file is not a json file
-        //should not throw an exeption if the file does not exist, just create one.
         String extention = filename.split("\\.")[1];
         if (!extention.equalsIgnoreCase("csv")){
             throw new WrongFileTypeException();

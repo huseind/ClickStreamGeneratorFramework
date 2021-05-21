@@ -2,8 +2,9 @@ package CSGFramework.User;
 
 import java.time.LocalDateTime;
 
+//TODO: Delete this class
 /**
- * A class that lets us custimize what we want to log in our clickstreamdata
+ * A class that lets us customize what we want to log in our clickstreamdata
  */
 public class UserActionBuilder {
     private String userId;

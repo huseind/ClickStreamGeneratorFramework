@@ -15,22 +15,25 @@ import java.util.List;
 public class ClickStreamGenerator {
     private Website website;
     private List<User> users;
-    // REDUNDANT? user has useractions...
     private List<UserAction> generatedActions = new ArrayList<>();
     private int numberOfLinesToGenerate;
     private List<String> includedDataFields = new ArrayList<>(Arrays.asList("userId", "ationId", "urlOfPageActionWasPerformedOn", "timeActionWasPerformed"));
 
 
-
+    /**
+     * package private constructor
+     * @param website Website to generate clickstream data on
+     * @param users the users that are going to perform actions
+     * @param numberOfLinesToGenerate the number of actions each user is going to generate
+     */
     ClickStreamGenerator(Website website, List<User> users, int numberOfLinesToGenerate){
-        // constructor
         this.website = website;
         this.users = users;
         this.numberOfLinesToGenerate = numberOfLinesToGenerate;
     }
 
     /**
-     * Method that generates a set amout of useractions without the client having to spesify anything
+     * generates a set amount of useractions without the client having to specify anything
      * @return a list of actions that performed by a set of users.
      */
     public List<UserAction> generateCliksteram(){
@@ -44,10 +47,10 @@ public class ClickStreamGenerator {
 
 
     /**
+     * exhaust every route on the website, in other words performs every redirecting action
      * @return returns a list of actions performed by user object to exhaust all routes.
      */
     public List<UserAction> exhaust(){
-        //TODO: let the user traverse the website, until they have visited all pages
         for (User user:users) {
             user.exhaustAllRoutes(website);
         }
@@ -55,7 +58,8 @@ public class ClickStreamGenerator {
     }
 
     /**
-     *
+     * generates the fastest route from fromWebpage to toWebpage,
+     * fastest route is the least amount of actions required
      * @param fromWebpage the page where we want to start
      * @param toWebpage the page where we want to end up
      * @return list of least amount of actions required to go from fromWebpage to toWebpage
