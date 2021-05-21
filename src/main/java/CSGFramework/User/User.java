@@ -23,7 +23,7 @@ public class User {
    // private Webpage currentViewingWebpage;
     private List<Webpage> vistitedWebpages = new ArrayList<>(); // IS THIS NECCESARY?!?!?!?!
     private List<Webpage> breadcrumbs = new ArrayList<>();
-    private Webpage previousWebpage;
+
 
 
     // CONSTRUCTORS //
@@ -147,18 +147,13 @@ public class User {
                 Action action = (Action) pair.getKey();
                 nextActionToPerform = action;
                 now = now + action.getTimeActionTakesToPerformInMs();
-                if(isActionAlreadyPerformed(action) == false && pair.getValue() != null){
+                if(!isActionAlreadyPerformed(action)&& pair.getValue() != null){
                     webpage = (Webpage) pair.getValue();
                     break;
                 }
             }
             if(webpage != null){
-                performedActions.add(new UserAction(
-                        this.id,
-                        nextActionToPerform.getActionId(),
-                        breadcrumbs.get(breadcrumbs.size()-1).getUrl(),
-                        webpage == null ?  null : webpage.getUrl(),
-                        LocalDateTime.ofInstant(Instant.ofEpochMilli(now), ZoneId.systemDefault())));
+                performedActions.add(new UserAction(this.id, nextActionToPerform.getActionId(), breadcrumbs.get(breadcrumbs.size()-1).getUrl(),webpage.getUrl(), LocalDateTime.ofInstant(Instant.ofEpochMilli(now), ZoneId.systemDefault())));
                 visitPage(webpage);
                 actions.remove(nextActionToPerform);
 
@@ -176,6 +171,12 @@ public class User {
      * called when user has to perform actions, but no more action are available on this webpage
      */
     private void goBack() {
+        performedActions.add(new UserAction(
+                this.id,
+                "Return Action",
+                breadcrumbs.get(breadcrumbs.size()-1).getUrl(),
+                breadcrumbs.get(breadcrumbs.size()-2).getUrl(),
+                LocalDateTime.ofInstant(Instant.ofEpochMilli(System.currentTimeMillis()), ZoneId.systemDefault())));
         breadcrumbs.remove(breadcrumbs.get(breadcrumbs.size()-1));
     }
 

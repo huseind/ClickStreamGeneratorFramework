@@ -2,12 +2,15 @@ import CSGFramework.Exceptions.WrongFileTypeException;
 import CSGFramework.Generator.ClickStreamGenerator;
 import CSGFramework.Generator.ClickStreamGeneratorBuilder;
 import CSGFramework.User.User;
+import CSGFramework.User.UserAction;
 import CSGFramework.User.UserBuilder;
 import CSGFramework.Website.Website;
 import CSGFramework.Website.WebsiteBuilder;
 import CSGFramework.Writers.CSVWriter;
 import CSGFramework.Writers.JSONWriter;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -24,7 +27,7 @@ public class UserTest {
     }
 
 
-    User user2 = new UserBuilder().setId("User Husein").build();
+    User user2 = new UserBuilder().setId("Husein").build();
     //Webpage webpage = new WebpageBuilder().generateRedirectingActions(1).build();
     Website website = new WebsiteBuilder().build();
     ClickStreamGenerator clickStreamGenerator = new ClickStreamGeneratorBuilder().setWebsite(website).addUser(user2).build();
@@ -50,7 +53,11 @@ public class UserTest {
 
     @Test
     public void exhaustTest(){
-        clickStreamGenerator.exhaust();
+        List<UserAction> actions =clickStreamGenerator.exhaust();
+
+        for(UserAction action:actions) {
+            System.out.println(action);
+        }
     }
 
 

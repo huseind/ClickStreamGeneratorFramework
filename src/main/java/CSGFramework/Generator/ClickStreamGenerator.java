@@ -16,7 +16,7 @@ public class ClickStreamGenerator {
     private Website website;
     private List<User> users;
     private List<UserAction> generatedActions = new ArrayList<>();
-    private int numberOfLinesToGenerate;
+    private int numberOfActionsToGenerate;
     private List<String> includedDataFields = new ArrayList<>(Arrays.asList("userId", "ationId", "urlOfPageActionWasPerformedOn", "timeActionWasPerformed"));
 
 
@@ -24,12 +24,12 @@ public class ClickStreamGenerator {
      * package private constructor
      * @param website Website to generate clickstream data on
      * @param users the users that are going to perform actions
-     * @param numberOfLinesToGenerate the number of actions each user is going to generate
+     * @param numberOfActionsToGenerate the number of actions each user is going to generate
      */
-    ClickStreamGenerator(Website website, List<User> users, int numberOfLinesToGenerate){
+    ClickStreamGenerator(Website website, List<User> users, int numberOfActionsToGenerate){
         this.website = website;
         this.users = users;
-        this.numberOfLinesToGenerate = numberOfLinesToGenerate;
+        this.numberOfActionsToGenerate = numberOfActionsToGenerate;
     }
 
     /**
@@ -38,7 +38,7 @@ public class ClickStreamGenerator {
      */
     public List<UserAction> generateCliksteram(){
         for (User user: users) {
-            generatedActions.addAll(user.perform(numberOfLinesToGenerate));
+            generatedActions.addAll(user.perform(numberOfActionsToGenerate));
 
         }
         return generatedActions;
@@ -53,6 +53,7 @@ public class ClickStreamGenerator {
     public List<UserAction> exhaust(){
         for (User user:users) {
             user.exhaustAllRoutes(website);
+            generatedActions.addAll(user.getPerformedActions());
         }
         return generatedActions;
     }

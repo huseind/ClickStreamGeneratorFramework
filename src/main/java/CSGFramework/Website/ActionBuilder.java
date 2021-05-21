@@ -26,7 +26,7 @@ public class ActionBuilder {
      * does not generate identical ids
      * @return
      */
-    private String generateRandomActionId(){ //TODO: Should not create two equal strings
+    private String generateRandomActionId(){
 
         String listOfCharFor = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "0123456789";
         String returnString = "";

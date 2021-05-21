@@ -6,15 +6,17 @@ import CSGFramework.User.User;
 import CSGFramework.User.UserAction;
 import CSGFramework.User.UserBuilder;
 import CSGFramework.Website.*;
+import CSGFramework.Writers.CSVWriter;
 import CSGFramework.Writers.IWriter;
 import CSGFramework.Writers.JSONWriter;
+import com.google.gson.JsonObject;
 import com.google.gson.stream.JsonWriter;
 
 import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         /*
         // Generate clickstream data without any options specified
@@ -67,12 +69,11 @@ public class Main {
 
         /////////////////////////////////////////// NEW AGAIN ///////////////////////////////////////////
 
-        //TODO: create a website with pages that have redirecting actions
         Website webSute = new WebsiteBuilder().build();
         Webpage webpaage = new WebpageBuilder().build();
         webSute.addWebpage(webpaage);
 
-*/
+
         User hus = new UserBuilder().setId("Husein").build();
         ClickStreamGenerator csg = new ClickStreamGeneratorBuilder().addUser(hus).build();
         csg.generateCliksteram();
@@ -84,8 +85,50 @@ public class Main {
             e.printStackTrace();;
         }
     }
+*/
+
+
+        // creating a generator
+        ClickStreamGenerator generator = new ClickStreamGeneratorBuilder().setNumberOfActionsToGenerate(2).build();
+        //generating user actions
+        List<UserAction> generatedActions = generator.generateCliksteram();
+        // initiating a writer
+        CSVWriter csvWriter = new CSVWriter();
+        // write to file
+        try {
+            csvWriter.writeToFile("writerTestCsv.csv",generatedActions);
+        }
+        catch (WrongFileTypeException e){
+            e.printStackTrace();
+        }
+
+        //creating a website mock
+        Website website = new WebsiteBuilder().setHomeWebpage(
+                new WebpageBuilder().setUrl("Mysite.com/home")
+                        .addNonRedirectingeAction(new ActionBuilder()
+                                .setActionId("LikeAction")
+                                .setTimeActionTakesToPerformInMs(200)
+                                .setChanceOfActonBeingPerformed(0.2).build()).build())
+                .setName("MyWebsite.com").build();
+
+
+        // converting to json object
+        JsonObject jsonUserActions = UserActionConverter.convertUserActionToJson(generatedActions);
+
+        for (UserAction userAction:generatedActions) {
+            System.out.println(userAction);
+        }
+
+        System.out.println(jsonUserActions.toString());
+
+        ClickStreamGenerator cgs = new ClickStreamGeneratorBuilder().setWebsite(website).build();
+
+        List<UserAction> actions= cgs.exhaust();
+        for (UserAction action:actions) {
+            System.out.println(action);
+        }
 
 
 
-
+    }
 }
