@@ -9,6 +9,7 @@ public class UserActionBuilder {
     private String userId;
     private String actionId;
     private String urlOfPageActionWasPerformedOn;
+    private String urlRedirectedTo;
     private LocalDateTime timeActionWasPerformed;
 
     public UserActionBuilder setUser(String userId) {
@@ -33,6 +34,6 @@ public class UserActionBuilder {
 
 
     public UserAction build(){
-        return new UserAction(userId,actionId,urlOfPageActionWasPerformedOn,timeActionWasPerformed);
+        return new UserAction(userId,actionId,urlOfPageActionWasPerformedOn,urlRedirectedTo,timeActionWasPerformed);
     }
 }

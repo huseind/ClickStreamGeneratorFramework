@@ -6,7 +6,7 @@ import java.util.HashMap;
  * Class that represents a webpage
  */
 public class Webpage {
-    private Website website;
+    private Website website; // TODO: remove this? site should know what pages it has but why the other way around?
     private String url;
     private HashMap<Action, Webpage> possibleActions;
 
@@ -40,4 +40,24 @@ public class Webpage {
     public String toString(){
         return url;
     }
+
+
+    // new before final
+    void setWebsite(Website website){
+        this.website = website;
+    }
+
+    void addRedirectingAction(Action action, Webpage webpage){
+        possibleActions.put(action,webpage);
+    }
+
+    void addRedirectingActions(HashMap<Action,Webpage> actions){
+        possibleActions.putAll(actions);
+    }
+
+
+
+
+
+
 }

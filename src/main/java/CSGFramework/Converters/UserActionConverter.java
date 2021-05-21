@@ -10,15 +10,6 @@ import java.util.List;
 public abstract class UserActionConverter {
 
     public static JsonObject convertUserActionToJson(List<UserAction> actions){
-        /*
-        ArrayList<String> userActionsJson = new ArrayList<>();
-        Gson gson = new Gson();
-        for (UserAction action:actions) {
-            String stringAction = gson.toJson(action);
-            userActionsJson.add(stringAction);
-        }
-        return userActionsJson;
-        */
         JsonObject jsonObject = new JsonObject();
         jsonObject.add("userActions",new Gson().toJsonTree(actions));
         return jsonObject;

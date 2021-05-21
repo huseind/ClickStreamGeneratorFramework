@@ -16,7 +16,7 @@ public class ClickStreamGenerator {
     private Website website;
     private List<User> users;
     // REDUNDANT? user has useractions...
-    private List<UserAction> generatedActions;
+    private List<UserAction> generatedActions = new ArrayList<>();
     private int numberOfLinesToGenerate;
     private List<String> includedDataFields = new ArrayList<>(Arrays.asList("userId", "ationId", "urlOfPageActionWasPerformedOn", "timeActionWasPerformed"));
 
@@ -35,7 +35,8 @@ public class ClickStreamGenerator {
      */
     public List<UserAction> generateCliksteram(){
         for (User user: users) {
-                user.perform(2);
+            generatedActions.addAll(user.perform(numberOfLinesToGenerate));
+
         }
         return generatedActions;
     }
@@ -43,30 +44,30 @@ public class ClickStreamGenerator {
 
 
     /**
-     *
-     * @param website a website object where one wats to see actions required to exhaust all routes
      * @return returns a list of actions performed by user object to exhaust all routes.
      */
-    public List<UserAction> exhaust(Website website){
+    public List<UserAction> exhaust(){
         //TODO: let the user traverse the website, until they have visited all pages
+        for (User user:users) {
+            user.exhaustAllRoutes(website);
+        }
         return generatedActions;
     }
 
     /**
      *
-     * @param website a website where both pages exist
      * @param fromWebpage the page where we want to start
      * @param toWebpage the page where we want to end up
      * @return list of least amount of actions required to go from fromWebpage to toWebpage
      */
-    public List<UserAction> generateFastestRoute(Website website, Webpage fromWebpage, Webpage toWebpage){
+    public List<UserAction> generateFastestRoute( Webpage fromWebpage, Webpage toWebpage){
         //  TODO: impement the method that finds the fastest route from one page to another in a website
         return generatedActions;
     }
 
 
     /**
-     * Method that clears all generated actions from the generator
+     * clears all generated actions from the generator
      */
     public void resetAllActions(){
         generatedActions.clear();

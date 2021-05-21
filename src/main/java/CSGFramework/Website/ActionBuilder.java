@@ -7,7 +7,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class ActionBuilder {
     private String actionId = generateRandomActionId();
     private int timeActionTakesToPerformInMs =  generateRandomInt();
-    private double chanceOfActonBeingPerformed = 0.5;
+    private double chanceOfActonBeingPerformed = (Math.random() + 0.01);
 
     // new before final
     private static List<String> alreadyGeneratedIds = new ArrayList<>();

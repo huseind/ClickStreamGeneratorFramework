@@ -27,9 +27,11 @@ public class WebpageTest {
         site.addWebpage(page);
 
     }
+    /*
 
     @Test // Testing generating actions on a page without a website, redirects to external websites
     public void generateRedirectingActionsTest(){
         assertTrue(new WebpageBuilder().generateRedirectingActions(19).build().getNumberOfActions() == 19);
     }
+    */
 }
