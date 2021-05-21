@@ -21,21 +21,24 @@ import java.util.List;
 public class JSONWriter implements IWriter{
 
 
+    /**
+     *
+     * @param filename the name of file to write to
+     * @param userActions list of UserActions to write
+     * @throws WrongFileTypeException if filename does not refer to a json file
+     */
     @Override
-    public void writeToFile(String fileURL, List<UserAction> userActions) throws WrongFileTypeException {
-        String extention = fileURL.split("\\.")[1];
+    public void writeToFile(String filename, List<UserAction> userActions) throws WrongFileTypeException {
+        String extention = filename.split("\\.")[1];
         if (!extention.equalsIgnoreCase("json")){
             throw new WrongFileTypeException();
         }
         BufferedWriter output = null;
         try {
-            File file = new File(fileURL);
+            File file = new File(filename);
             output = new BufferedWriter(new FileWriter(file));
             JsonObject jsonObject = UserActionConverter.convertUserActionToJson(userActions);
-
-                output.write(jsonObject.toString());
-
-
+            output.write(jsonObject.toString());
         } catch ( IOException e ) {
             e.printStackTrace();
         } finally {

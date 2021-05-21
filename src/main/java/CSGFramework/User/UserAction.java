@@ -20,7 +20,8 @@ public class UserAction {
 
     @Override
     public String toString() {
-        return userId + " " + actionId + " " + " " + urlOfPageActionWasPerformedOn + " " + urlRedirectedTo +  " " + timeActionWasPerformed;
+        System.out.println(userId);
+        return userId + " " + actionId + " " + urlOfPageActionWasPerformedOn + " " + urlRedirectedTo +  " " + timeActionWasPerformed;
     }
 
     String getActionId(){

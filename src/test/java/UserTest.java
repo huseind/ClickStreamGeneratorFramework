@@ -7,6 +7,7 @@ import CSGFramework.Website.Webpage;
 import CSGFramework.Website.WebpageBuilder;
 import CSGFramework.Website.Website;
 import CSGFramework.Website.WebsiteBuilder;
+import CSGFramework.Writers.CSVWriter;
 import CSGFramework.Writers.JSONWriter;
 import org.junit.jupiter.api.Test;
 
@@ -35,10 +36,16 @@ public class UserTest {
     public void userTest(){
 
         assertNotNull(user.getId());
-
+        clickStreamGenerator.generateCliksteram();
         try {
             JSONWriter jsonWriter = new JSONWriter();
-            jsonWriter.writeToFile("hei.json",user2.getPerformedActions());
+            jsonWriter.writeToFile("writerTestJson.json",user2.getPerformedActions());
+        }catch (WrongFileTypeException e){
+            e.printStackTrace();
+        }
+        try {
+            CSVWriter csvWriter = new CSVWriter();
+            csvWriter.writeToFile("writerTestCsv.csv",user2.getPerformedActions());
         }catch (WrongFileTypeException e){
             e.printStackTrace();
         }
