@@ -127,7 +127,6 @@ public class WebpageBuilder {
             }
         }
         possibleActions.putAll(returnMap);
-        System.out.println(possibleActions);
         return this;
     }
 
@@ -146,7 +145,6 @@ public class WebpageBuilder {
             returnMap.put(action,null);
         }
 
-        System.out.println(returnMap);
         possibleActions.putAll(returnMap);
         return this;
     }

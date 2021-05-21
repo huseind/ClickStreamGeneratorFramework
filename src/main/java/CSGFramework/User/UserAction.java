@@ -30,7 +30,6 @@ public class UserAction {
 
     @Override
     public String toString() {
-        System.out.println(userId);
         return userId + " " + actionId + " " + urlOfPageActionWasPerformedOn + " " + urlRedirectedTo +  " " + timeActionWasPerformed;
     }
 

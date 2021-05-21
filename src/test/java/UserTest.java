@@ -20,7 +20,6 @@ public class UserTest {
     public void performTest(){
         csg.generateCliksteram();
         assertTrue(!user.getPerformedActions().isEmpty());
-        System.out.println(user.getPerformedActions().size());
         assertTrue(user.getPerformedActions().size() == 2);
     }
 

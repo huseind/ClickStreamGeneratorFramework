@@ -82,7 +82,6 @@ public class User {
                         } else if (nextActionToPerform.getChanceOfActonBeingPerformed() < action.getChanceOfActonBeingPerformed()) {
                             nextActionToPerform = action;
                             webpage = (Webpage) pair.getValue();
-                            System.out.println(webpage);
                         }
                     }
                 }
@@ -125,7 +124,6 @@ public class User {
         //currentViewingWebpage = website.getHomeWebpage();
         List<Webpage> allPages = website.getAllWebpages();
         long now = System.currentTimeMillis();
-        System.out.println("ALL PAGES: " +allPages);
         while(vistitedWebpages.size() < allPages.size()){
             HashMap<Action,Webpage> actions = new HashMap<>(breadcrumbs.get(breadcrumbs.size()-1).getPossibleActions());
             Iterator iterator = actions.entrySet().iterator();
@@ -150,7 +148,6 @@ public class User {
                 nextActionToPerform = action;
                 now = now + action.getTimeActionTakesToPerformInMs();
                 if(isActionAlreadyPerformed(action) == false && pair.getValue() != null){
-                    System.out.println("Fond an action");
                     webpage = (Webpage) pair.getValue();
                     break;
                 }
